@@ -4,7 +4,7 @@ public class Brano {
     private String titolo;
     private String autore;
     private String genere;
-    private int durata;
+    private Integer durata;
 
     public String getTitolo(){
         return titolo;
@@ -25,10 +25,10 @@ public class Brano {
     public void setGenere(String genere){
         this.genere = genere;
     }
-    public int getDurata(){
+    public Integer getDurata(){
         return durata;
     }
-    public void setDurata(int durata){
+    public void setDurata(Integer durata){
         this.durata = durata;
     }
 }
