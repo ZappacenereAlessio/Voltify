@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
         String[] elencoGeneri = {"pop", "Kpop", "Jpop"};
 
     @Override
