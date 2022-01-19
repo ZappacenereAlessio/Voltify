@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-        String[] elencoGeneri = {"pop", "Kpop", "Jpop"};
+        String[] elencoGeneri = {"1", "2", "3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
