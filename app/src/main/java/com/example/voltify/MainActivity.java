@@ -2,6 +2,7 @@ package com.example.voltify;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -36,15 +37,16 @@ public class MainActivity extends AppCompatActivity {
         inserisci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gestoreBrani.aggBrano(titolo.getText().toString(), autore.getText().toString(), genere.getSelectedItem().toString(), Integer.getInteger(durata.getText().toString()));
-               /* String testo = genere.getSelectedItem().toString();
-                Toast.makeText(getApplicationContext(), testo,Toast.LENGTH_LONG).show();*/
+               // gestoreBrani.aggBrano(titolo.getText().toString(), autore.getText().toString(), genere.getSelectedItem().toString(), Integer.getInteger(durata.getText().toString()));
+                String testo = genere.getSelectedItem().toString();
+                Toast.makeText(getApplicationContext(), testo,Toast.LENGTH_LONG).show();
             }
         });
 
         visualizza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ListaBrani.class));
 
             }
         });
