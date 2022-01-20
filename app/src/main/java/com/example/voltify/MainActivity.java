@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,32 +25,46 @@ public class MainActivity extends AppCompatActivity {
         Button inserisci=(Button)findViewById(R.id.button3);
         Button visualizza=(Button)findViewById(R.id.button4);
 
-        EditText titolo=(EditText)findViewById(R.id.editText);
-        EditText autore=(EditText)findViewById(R.id.editText2);
+        EditText titolo=(EditText)findViewById(R.id.editText2);
+        EditText autore=(EditText)findViewById(R.id.editText);
         EditText durata=(EditText)findViewById(R.id.editText3);
 
         Spinner genere=(Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> spGenere = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, elencoGeneri);
         genere.setAdapter(spGenere);
 
-        GestoreBrani gestoreBrani = new GestoreBrani();
+       GestoreBrani gestoreBrani = new GestoreBrani();
+
 
         inserisci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // gestoreBrani.aggBrano(titolo.getText().toString(), autore.getText().toString(), genere.getSelectedItem().toString(), Integer.getInteger(durata.getText().toString()));
+                StringBuilder builder = new StringBuilder();
+                //builder.append(titolo.getText().toString() + autore.getText().toString() + genere.getSelectedItem().toString() + Integer.getInteger(durata.getText().toString()));
+                //gestoreBrani.aggBrano(titolo.getText().toString(), autore.getText().toString(), genere.getSelectedItem().toString(), Integer.getInteger(durata.getText().toString()));
                 String testo = genere.getSelectedItem().toString();
-                Toast.makeText(getApplicationContext(), testo,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), testo,Toast.LENGTH_LONG).show(); //spinner TEST
+
             }
         });
 
         visualizza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,ListaBrani.class));
+                sendData();
+
 
             }
         });
 
+
+    }
+    public void sendData() { //TEST
+        EditText titoloText=(EditText)findViewById(R.id.editText2);
+        String titolo = titoloText.getText().toString();
+
+        Intent intent = new Intent(MainActivity.this, ListaBrani.class);
+        intent.putExtra(ListaBrani.TITOLO, titolo);
+        startActivity(intent);
     }
 }
