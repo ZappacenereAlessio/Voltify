@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 //gestoreBrani.aggBrano(titolo.getText().toString(), autore.getText().toString(), genere.getSelectedItem().toString(), Integer.getInteger(durata.getText().toString()));
 
                 String genereSel = genere.getSelectedItem().toString();
-                //Toast.makeText(getApplicationContext(), genereSel,Toast.LENGTH_LONG).show(); //spinner TEST
+                Toast.makeText(getApplicationContext(), genereSel,Toast.LENGTH_LONG).show(); //spinner TEST
 
                 gestoreBrani.aggBrano(titolo.getText().toString(), genereSel);
 
