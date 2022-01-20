@@ -6,6 +6,10 @@ public class Brano {
     private String genere;
     private Integer durata;
 
+    public Brano(String titolo, String genere) {
+    }
+
+
     public String getTitolo(){
         return titolo;
     }
@@ -31,5 +35,6 @@ public class Brano {
     public void setDurata(Integer durata){
         this.durata = durata;
     }
+
 }
 

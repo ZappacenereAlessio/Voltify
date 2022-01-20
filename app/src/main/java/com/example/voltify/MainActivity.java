@@ -39,11 +39,13 @@ public class MainActivity extends AppCompatActivity {
         inserisci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StringBuilder builder = new StringBuilder();
-                //builder.append(titolo.getText().toString() + autore.getText().toString() + genere.getSelectedItem().toString() + Integer.getInteger(durata.getText().toString()));
+
                 //gestoreBrani.aggBrano(titolo.getText().toString(), autore.getText().toString(), genere.getSelectedItem().toString(), Integer.getInteger(durata.getText().toString()));
-                String testo = genere.getSelectedItem().toString();
-                Toast.makeText(getApplicationContext(), testo,Toast.LENGTH_LONG).show(); //spinner TEST
+
+                String genereSel = genere.getSelectedItem().toString();
+                //Toast.makeText(getApplicationContext(), genereSel,Toast.LENGTH_LONG).show(); //spinner TEST
+
+                gestoreBrani.aggBrano(titolo.getText().toString(), genereSel);
 
             }
         });
