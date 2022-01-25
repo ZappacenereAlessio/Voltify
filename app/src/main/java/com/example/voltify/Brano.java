@@ -6,7 +6,8 @@ public class Brano {
     private String genere;
     private Integer durata;
 
-    public Brano(String titolo, String genere) {
+    public Brano(String titolo, String autore, String genere, Integer durata) {
+
     }
 
 

@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-        String[] elencoGeneri = {"1", "2", "3"};
+        String[] elencoGeneri = {"rock", "pop", "trap"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +39,8 @@ public class MainActivity extends AppCompatActivity {
         inserisci.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //gestoreBrani.aggBrano(titolo.getText().toString(), autore.getText().toString(), genere.getSelectedItem().toString(), Integer.getInteger(durata.getText().toString()));
-
-                String genereSel = genere.getSelectedItem().toString();
-                Toast.makeText(getApplicationContext(), genereSel,Toast.LENGTH_LONG).show(); //spinner TEST
-
-                gestoreBrani.aggBrano(titolo.getText().toString(), genereSel);
+                //Toast.makeText(getApplicationContext(), genere.getSelectedItem().toString(),Toast.LENGTH_LONG).show(); //spinner TEST
+                gestoreBrani.aggBrano(titolo.getText().toString(), autore.getText().toString(), genere.getSelectedItem().toString(), Integer.getInteger(durata.getText().toString()));
 
             }
         });
@@ -53,20 +48,16 @@ public class MainActivity extends AppCompatActivity {
         visualizza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendData();
+
+                Intent intent = new Intent(MainActivity.this, ListaBrani.class);
+                gestoreBrani.listaSong();
+                intent.putExtra("Brano", gestoreBrani.listaSong());
+                startActivity(intent);
 
 
             }
         });
 
 
-    }
-    public void sendData() { //TEST
-        EditText titoloText=(EditText)findViewById(R.id.editText2);
-        String titolo = titoloText.getText().toString();
-
-        Intent intent = new Intent(MainActivity.this, ListaBrani.class);
-        intent.putExtra(ListaBrani.TITOLO, titolo);
-        startActivity(intent);
     }
 }

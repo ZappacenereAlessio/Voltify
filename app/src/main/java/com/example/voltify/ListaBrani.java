@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 public class ListaBrani extends AppCompatActivity {
 
-    private String titolo;
-    public  static final String TITOLO = "TITOLO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +19,9 @@ public class ListaBrani extends AppCompatActivity {
         TextView lBrani =(TextView)findViewById(R.id.textView6);
 
         Intent intent = getIntent();
-        titolo = intent.getStringExtra(TITOLO);
+        String branoCompilato = getIntent().getParcelableExtra("Brano");
 
-        lBrani.setText(titolo);
+        lBrani.setText(branoCompilato);
 
     }
 
